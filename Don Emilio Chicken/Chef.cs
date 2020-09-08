@@ -34,7 +34,7 @@ namespace Don_Emilio_Chicken
             });
             return combo.drink.getName();
         }
-        public async void PrepararCombo(Combo<T> combo)
+        public async void PrepareCombo(Combo<T> combo)
         {
             await Task.Run(() =>
             {

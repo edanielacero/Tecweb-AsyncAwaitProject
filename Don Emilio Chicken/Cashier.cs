@@ -32,7 +32,7 @@ namespace Don_Emilio_Chicken
                 Console.WriteLine($"Drink: {item.drink.getName()}\n-------------");
             }
         }
-        public async void menu(List<Combo<T>> combos)
+        public async void menu(List<Combo<T>> combos, Chef<T> chef)
         {
             string opcion = "0";
             do
@@ -46,8 +46,10 @@ namespace Don_Emilio_Chicken
                         ComboMenu(combos);
                         break;
                     case "2":
-
-
+                        var order = new Order();
+                        order = takeOrder();
+                        chef.receiveOrder(order);
+                        chef.PrepareCombo(chef.OrderQ.Enqueue)
                 }
             }
             while (opcion != "0");
