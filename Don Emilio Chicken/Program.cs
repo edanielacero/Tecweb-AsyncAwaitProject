@@ -40,7 +40,7 @@ namespace Don_Emilio_Chicken
             var combos = createCombos();
             var cashier = new Cashier<int>();
             var chef = new Chef<int>();
-
+            cashier.menu(combos, chef);
         }
     }
 }

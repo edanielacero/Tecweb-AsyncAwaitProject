@@ -9,7 +9,7 @@ namespace Don_Emilio_Chicken
 {
     class Chef<T>
     {
-        public Queue<Order> OrderQ { get; set; }
+        public Queue<Order> OrderQ = new Queue<Order>();
 
         public void receiveOrder(Order orderReceived)
         {
@@ -17,7 +17,7 @@ namespace Don_Emilio_Chicken
         }
         public async Task<string> PrepareChickenAsync(Combo<T> combo)
         {
-            await Task.Run(() =>
+            await Task.Run(async() =>
             {
                 Console.WriteLine($"preparando {combo.chicken.getName()}");
                 Thread.Sleep(combo.chicken.getTime());
@@ -27,7 +27,7 @@ namespace Don_Emilio_Chicken
 
         public async Task<string> PrepareDrinkAsync(Combo<T> combo)
         {
-            await Task.Run(() =>
+            await Task.Run(async() =>
             {
                 Console.WriteLine($"sirviendo {combo.drink.getName()}");
                 Thread.Sleep(combo.drink.getTime());
@@ -36,12 +36,15 @@ namespace Don_Emilio_Chicken
         }
         public async void PrepareCombo(Combo<T> combo)
         {
-            await Task.Run(() =>
+            await Task.Run(async () =>
             {
-                Console.WriteLine($"preparando {combo.chicken.getName()}");
-                Thread.Sleep(combo.chicken.getTime());
-                Console.WriteLine($"sirviendo {combo.drink.getName()}");
-                Thread.Sleep(combo.drink.getTime());
+                var chickenTask = PrepareChickenAsync(combo);
+                var drinkTask = PrepareDrinkAsync(combo);
+                var chicken = await chickenTask;
+                var drink = await drinkTask;
+                Console.WriteLine($"{drink} esta listo");
+                Console.WriteLine($"{chicken} esta listo");
+                Console.WriteLine($"El pollo de {OrderQ.Dequeue().client} esta listo");
             });
         }
     }
