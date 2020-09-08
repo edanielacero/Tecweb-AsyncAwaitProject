@@ -8,7 +8,7 @@ namespace Don_Emilio_Chicken
 {
     class Program
     {
-        List<Combo<int>> createCombos()
+        public static List<Combo<int>> createCombos()
         {
             var combosList = new List<Combo<int>>();
             var combo1 = new Combo<int>()
@@ -34,50 +34,13 @@ namespace Don_Emilio_Chicken
             combosList.Add(combo3);
             return combosList;
         }
-        void ComboMenu(List<Combo<int>> comboList)
-        {
-            Console.WriteLine("MENU\n");
-            foreach(var item in comboList)
-            {
-                Console.WriteLine($"Combo {item.ID}\n");
-                Console.WriteLine($"Pollo: {item.chicken.getName()}\n");
-                Console.WriteLine($"Drink: {item.drink.getName()}\n-------------");
-            }
-        }
-        void chooseCombo(List<Combo<int>>combos)
-        {
-            var cashier = new Cashier();
-            var chef = new Chef<int>();
-            Console.WriteLine("Nombre del Cliente:");
-            cashier.setClient(Console.ReadLine());
-            Console.WriteLine("Combo:");
-            cashier.setCombo(Convert.ToInt32(Console.ReadLine()));
-            var chicken=chef.PrepareChickenAsync()
-        }
-        async void menu()
-        {
-            var combos = createCombos();
-            string opcion = "0";
-            do
-            {
-                Console.WriteLine("Pollos Don Emilio");
-                Console.WriteLine("\n1.Visualizar Menu\n2.Elegir Combo\n3.Limpiar Mesa\n4.Borrar Pantalla");
-                opcion = Console.ReadLine();
-                switch (opcion)
-                {
-                    case "1":
-                        ComboMenu(combos);
-                        break;
-                    case "2":
-                        
 
-                }
-            }
-            while (opcion != "0");
-        }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var combos = createCombos();
+            var cashier = new Cashier<int>();
+            var chef = new Chef<int>();
+
         }
     }
 }
