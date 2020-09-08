@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Don_Emilio_Chicken
 {
@@ -19,6 +20,13 @@ namespace Don_Emilio_Chicken
         public void cleanTable(int tablenumber)
         {
             Console.WriteLine($"Limpiando mesa #{tablenumber}");
+            Thread.Sleep(1000);
+            Console.WriteLine($"Mesa {tablenumber} limpia");
         }
+        //public Pedido()
+        //{
+            /*pedir nombre de cliente y combo*/
+            /*return pedido*/
+        //}
     }
 }

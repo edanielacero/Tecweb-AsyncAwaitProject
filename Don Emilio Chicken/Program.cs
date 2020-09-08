@@ -44,7 +44,7 @@ namespace Don_Emilio_Chicken
                 Console.WriteLine($"Drink: {item.drink.getName()}");
             }
         }
-        void chooseCombo()
+        void chooseCombo(List<Combo<int>>combos)
         {
             var cashier = new Cashier();
             var chef = new Chef<int>();
@@ -52,6 +52,7 @@ namespace Don_Emilio_Chicken
             cashier.setClient(Console.ReadLine());
             Console.WriteLine("Combo:");
             cashier.setCombo(Convert.ToInt32(Console.ReadLine()));
+            var chicken=chef.PrepareChickenAsync()
 
         }
         async void menu()
