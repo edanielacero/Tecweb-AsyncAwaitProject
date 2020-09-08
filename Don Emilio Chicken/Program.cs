@@ -39,9 +39,9 @@ namespace Don_Emilio_Chicken
             Console.WriteLine("MENU\n");
             foreach(var item in comboList)
             {
-                Console.WriteLine($"Combo {item.ID}");
-                Console.WriteLine($"Pollo: {item.chicken.getName()}");
-                Console.WriteLine($"Drink: {item.drink.getName()}");
+                Console.WriteLine($"Combo {item.ID}\n");
+                Console.WriteLine($"Pollo: {item.chicken.getName()}\n");
+                Console.WriteLine($"Drink: {item.drink.getName()}\n-------------");
             }
         }
         void chooseCombo(List<Combo<int>>combos)
@@ -53,7 +53,6 @@ namespace Don_Emilio_Chicken
             Console.WriteLine("Combo:");
             cashier.setCombo(Convert.ToInt32(Console.ReadLine()));
             var chicken=chef.PrepareChickenAsync()
-
         }
         async void menu()
         {
